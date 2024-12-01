@@ -6,10 +6,13 @@
 using namespace std;
 
 mutex mtx; //using mutex (to lock theards)
+int counter = 0; 
 
+// counter with mutex
 void foo(int a) {   
     mtx.lock(); // lock entring new threads
-    cout << a << endl;
+    counter++;
+    cout << "counter : " << counter << "  thread : " << a << endl;
     mtx.unlock(); // realse lock after thread finish to print
 }
 
